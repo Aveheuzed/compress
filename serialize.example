@@ -1,0 +1,31 @@
+Python 3.5.1+ (default, Mar 30 2016, 22:46:26) 
+[GCC 5.3.1 20160330] on linux
+Type "copyright", "credits" or "license()" for more information.
+>>> from pickle import dumps
+>>> f = lambda x : len(dumps(x))
+>>> f(dict())
+6
+>>> f({b"":b""})
+13
+>>> f({b"a":b""})
+16
+>>> f({b"":b"a"})
+16
+>>> f({b"a":b"",b"b":b""})
+24
+>>> f({b"a":b"a",b"b":b""})
+24
+>>> f({b"a":b"b",b"b":b"a"})
+22
+>>> f({b"a":b"b",b"c":b"d"})
+28
+>>> f({b"a":b"b"})
+17
+>>> f({b"c":b"d"})
+17
+>>>> f({b"aa":b"b"})
+18
+>>> f({b"ab":b"cd"})
+19
+>>> #adding a key : +=9
+>>> #adding a letter : +1
